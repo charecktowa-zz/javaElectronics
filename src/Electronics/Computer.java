@@ -5,15 +5,13 @@ public class Computer extends Electronics {
     private String cpu;
     private String gpu;
     private int ramFrequency;
-    private int driveCapacity;
 
     public Computer(int id, String serialNumber, String manufacturer,
-                    String cpu, String gpu, int ramFrequency, int driveCapacity) {
+                    String cpu, String gpu, int ramFrequency) {
         super(id, serialNumber, manufacturer);
         this.cpu = cpu;
         this.gpu = gpu;
         this.ramFrequency = ramFrequency;
-        this.driveCapacity = driveCapacity;
     }
 
     public String getCpu() {
@@ -42,11 +40,15 @@ public class Computer extends Electronics {
         this.ramFrequency = ramFrequency;
     }
 
-    public int getDriveCapacity() {
-        return driveCapacity;
-    }
-
-    public void setDriveCapacity(int driveCapacity) {
-        this.driveCapacity = driveCapacity;
+    @Override
+    public String toString() {
+        return ("""
+                ID: %d
+                NS: %s
+                MANU:%s
+                CPU:%s
+                GPU:%s
+                RAM%d
+                """).formatted(id, serialNumber, manufacturer, cpu, gpu, ramFrequency);
     }
 }
